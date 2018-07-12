@@ -1,0 +1,25 @@
+{
+  "name": "15.6.Stoper",
+  "version": "1.0.0",
+  "description": "ES6 - Stoper napisany przy użyciu klas",
+  "main": "script.js",
+  "scripts": {
+    "watch": "babel script.js --watch --out-file script-compiled.js"
+  },
+  "keywords": [
+    "Babel",
+    "ES6",
+    "Classes"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-latest": "^6.24.1"
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pawelbus/15.6.zadanie.git"
+  }
+}
