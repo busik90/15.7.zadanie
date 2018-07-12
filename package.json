@@ -1,7 +1,7 @@
 {
-  "name": "15.6.Stoper",
+  "name": "15.7.Stoper_in_React(ES6)",
   "version": "1.0.0",
-  "description": "ES6 - Stoper napisany przy użyciu klas",
+  "description": "Przekształcenie stopera na składnię ES6",
   "main": "script.js",
   "scripts": {
     "watch": "babel script.js --watch --out-file script-compiled.js"
@@ -9,7 +9,8 @@
   "keywords": [
     "Babel",
     "ES6",
-    "Classes"
+    "Classes",
+    "React"
   ],
   "author": "",
   "license": "ISC",
@@ -20,6 +21,6 @@
   "dependencies": {},
   "repository": {
     "type": "git",
-    "url": "https://github.com/pawelbus/15.6.zadanie.git"
+    "url": "https://github.com/pawelbus/15.7.zadanie.git"
   }
 }
