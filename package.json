@@ -4,7 +4,13 @@
   "description": "Przekształcenie stopera na składnię ES6",
   "main": "script.js",
   "scripts": {
-    "watch": "babel script.js --watch --out-file script-compiled.js"
+    "watch": "npm-run-all -p watch-*",
+    "watch-script.js": "babel script.js --watch --out-file script-compiled.js",
+    "watch-App.js": "babel components/App.js --watch --out-file components/compiled/App.js",
+    "watch-Controls.js": "babel components/Controls.js --watch --out-file components/compiled/Controls.js",
+    "watch-Stopwatch.js": "babel components/Stopwatch.js --watch --out-file components/compiled/Stopwatch.js",
+    "watch-ScoresTable.js": "babel components/ScoresTable.js --watch --out-file components/compiled/ScoresTable.js",
+    "watch-ClearListButton.js": "babel components/ClearListButton.js --watch --out-file components/compiled/ClearListButton.js"
   },
   "keywords": [
     "Babel",
@@ -16,7 +22,10 @@
   "license": "ISC",
   "devDependencies": {
     "babel-cli": "^6.26.0",
-    "babel-preset-latest": "^6.24.1"
+    "babel-preset-latest": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "globstar": "^1.0.0",
+    "npm-run-all": "^4.1.3"
   },
   "dependencies": {},
   "repository": {
