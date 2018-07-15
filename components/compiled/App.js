@@ -69,7 +69,7 @@ var App = function (_React$Component) {
     value: function render() {
       return React.createElement(
         'div',
-        { className: 'app' },
+        { className: 'stopwatchApp' },
         React.createElement(Controls, {
           isRunning: this.state.running,
           runningState: this.changeRunningState,
@@ -78,7 +78,8 @@ var App = function (_React$Component) {
         }),
         React.createElement(Stopwatch, {
           times: this.state.times
-        })
+        }),
+        React.createElement(ScoresTable, null)
       );
     }
   }]);

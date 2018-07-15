@@ -41,7 +41,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className='app'>
+      <div className='stopwatchApp'>
         <Controls
           isRunning={this.state.running}
           runningState={this.changeRunningState}
@@ -51,7 +51,7 @@ class App extends React.Component {
         <Stopwatch
           times={this.state.times}
         />
-        {/* <ScoresTable /> */}
+        <ScoresTable />
         {/* <ClearListButton /> */}
       </div>
     )
