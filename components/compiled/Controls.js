@@ -30,6 +30,12 @@ var Controls = function (_React$Component) {
       clearInterval(_this.watch);
     };
 
+    _this.reset = function () {
+      if (!_this.props.isRunning) {
+        _this.props.reset();
+      }
+    };
+
     return _this;
   }
 
@@ -57,7 +63,9 @@ var Controls = function (_React$Component) {
         ),
         React.createElement(
           'a',
-          { href: '#', className: 'button', id: 'reset' },
+          { href: '#', className: 'button', id: 'reset', onClick: function onClick() {
+              return _this2.reset();
+            } },
           'Reset'
         ),
         React.createElement(
@@ -75,5 +83,6 @@ var Controls = function (_React$Component) {
 Controls.propTypes = {
   isRunning: React.PropTypes.bool.isRequired,
   runningState: React.PropTypes.func.isRequired,
-  start: React.PropTypes.func.isRequired
+  start: React.PropTypes.func.isRequired,
+  reset: React.PropTypes.func.isRequired
 };

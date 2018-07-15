@@ -43,6 +43,16 @@ var App = function (_React$Component) {
       }
     };
 
+    _this.resetTime = function () {
+      _this.setState(function (_ref4) {
+        var times = _ref4.times;
+
+        times.minutes = 0;
+        times.seconds = 0;
+        times.miliseconds = 0;
+      });
+    };
+
     _this.state = {
       running: false,
       times: {
@@ -63,7 +73,8 @@ var App = function (_React$Component) {
         React.createElement(Controls, {
           isRunning: this.state.running,
           runningState: this.changeRunningState,
-          start: this.calculate
+          start: this.calculate,
+          reset: this.resetTime
         }),
         React.createElement(Stopwatch, {
           times: this.state.times

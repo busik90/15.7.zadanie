@@ -31,6 +31,14 @@ class App extends React.Component {
     }
   }
 
+  resetTime = () => {
+    this.setState( ({times}) => {
+      times.minutes = 0;
+      times.seconds = 0;
+      times.miliseconds = 0;
+    });
+  }
+
   render() {
     return (
       <div className='app'>
@@ -38,6 +46,7 @@ class App extends React.Component {
           isRunning={this.state.running}
           runningState={this.changeRunningState}
           start={this.calculate}
+          reset={this.resetTime}
         />
         <Stopwatch
           times={this.state.times}
