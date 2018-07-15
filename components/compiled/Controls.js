@@ -25,6 +25,11 @@ var Controls = function (_React$Component) {
       }
     };
 
+    _this.stop = function () {
+      _this.props.runningState(false);
+      clearInterval(_this.watch);
+    };
+
     return _this;
   }
 
@@ -45,7 +50,9 @@ var Controls = function (_React$Component) {
         ),
         React.createElement(
           'a',
-          { href: '#', className: 'button', id: 'stop' },
+          { href: '#', className: 'button', id: 'stop', onClick: function onClick() {
+              return _this2.stop();
+            } },
           'Stop'
         ),
         React.createElement(

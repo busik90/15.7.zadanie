@@ -16,11 +16,16 @@ class Controls extends React.Component {
     }
   }
 
+  stop = () => {
+    this.props.runningState(false);
+    clearInterval(this.watch);
+  }
+
   render () {
     return (
       <nav className='controls'>
         <a href='#' className='button' id='start' onClick={() => this.start()}>Start</a>
-        <a href='#' className='button' id='stop' >Stop</a>
+        <a href='#' className='button' id='stop' onClick={() => this.stop()}>Stop</a>
         <a href='#' className='button' id='reset' >Reset</a>
         <a href='#' className='button' id='save' >Save</a>
       </nav>
