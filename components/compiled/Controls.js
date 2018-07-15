@@ -8,69 +8,65 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var App = function (_React$Component) {
-  _inherits(App, _React$Component);
+var Controls = function (_React$Component) {
+  _inherits(Controls, _React$Component);
 
-  function App(props) {
-    _classCallCheck(this, App);
+  function Controls(props) {
+    _classCallCheck(this, Controls);
 
-    var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
+    var _this = _possibleConstructorReturn(this, (Controls.__proto__ || Object.getPrototypeOf(Controls)).call(this, props));
 
-    _this.changeRunningState = function (value) {
-      _this.setState({ running: value });
-    };
-
-    _this.calculate = function () {
-      _this.setState(function (_ref) {
-        var times = _ref.times;
-        times.miliseconds += 1;
-      });
-      if (_this.state.times.miliseconds >= 100) {
-        _this.setState(function (_ref2) {
-          var times = _ref2.times;
-
-          times.seconds += 1;
-          times.miliseconds = 0;
-        });
-      }
-      if (_this.state.times.seconds >= 60) {
-        _this.setState(function (_ref3) {
-          var times = _ref3.times;
-
-          times.minutes += 1;
-          times.seconds = 0;
-        });
+    _this.start = function () {
+      if (!_this.props.isRunning) {
+        _this.props.runningState(true);
+        _this.watch = setInterval(function () {
+          return _this.props.start();
+        }, 10);
       }
     };
 
-    _this.state = {
-      running: false,
-      times: {
-        minutes: 0,
-        seconds: 0,
-        miliseconds: 0
-      }
-    };
     return _this;
   }
 
-  _createClass(App, [{
+  _createClass(Controls, [{
     key: 'render',
     value: function render() {
+      var _this2 = this;
+
       return React.createElement(
-        'div',
-        { className: 'app' },
-        React.createElement(Controls, {
-          isRunning: this.state.running,
-          runningState: this.changeRunningState,
-          start: this.calculate
-        }),
-        React.createElement(Stopwatch, {
-          times: this.state.times
-        })
+        'nav',
+        { className: 'controls' },
+        React.createElement(
+          'a',
+          { href: '#', className: 'button', id: 'start', onClick: function onClick() {
+              return _this2.start();
+            } },
+          'Start'
+        ),
+        React.createElement(
+          'a',
+          { href: '#', className: 'button', id: 'stop' },
+          'Stop'
+        ),
+        React.createElement(
+          'a',
+          { href: '#', className: 'button', id: 'reset' },
+          'Reset'
+        ),
+        React.createElement(
+          'a',
+          { href: '#', className: 'button', id: 'save' },
+          'Save'
+        )
       );
     }
   }]);
 
-  return App;
+  return Controls;
 }(React.Component);
+
+Controls.propTypes = {
+  isRunning: React.PropTypes.bool.isRequired,
+  runningState: React.PropTypes.func.isRequired,
+  start: React.PropTypes.func.isRequired
+};
