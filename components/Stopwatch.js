@@ -1,6 +1,8 @@
 class Stopwatch extends React.Component {
   static propTypes = {
-    times: React.PropTypes.object.isRequired
+    times: React.PropTypes.object.isRequired,
+    saveState: React.PropTypes.bool.isRequired,
+    saveScore: React.PropTypes.func.isRequired
   }
 
   constructor(props) {
@@ -8,7 +10,9 @@ class Stopwatch extends React.Component {
   }
 
   print = () => {
-    return this.format(this.props.times);
+    let currentTime = this.format(this.props.times);
+    if (this.props.saveState) { this.props.saveScore(currentTime); };
+    return currentTime;
   }
 
   format = (times) =>  {

@@ -53,13 +53,25 @@ var App = function (_React$Component) {
       });
     };
 
+    _this.changeSaveState = function (value) {
+      _this.setState({ saveState: value });
+    };
+
+    _this.saveScore = function (score) {
+      _this.setState({ saveState: false });
+      _this.setState({ savedScore: score });
+      console.log(score);
+    };
+
     _this.state = {
       running: false,
       times: {
         minutes: 0,
         seconds: 0,
         miliseconds: 0
-      }
+      },
+      saveState: false,
+      savedScore: ''
     };
     return _this;
   }
@@ -74,12 +86,17 @@ var App = function (_React$Component) {
           isRunning: this.state.running,
           runningState: this.changeRunningState,
           start: this.calculate,
-          reset: this.resetTime
+          reset: this.resetTime,
+          save: this.changeSaveState
         }),
         React.createElement(Stopwatch, {
-          times: this.state.times
+          times: this.state.times,
+          saveState: this.state.saveState,
+          saveScore: this.saveScore
         }),
-        React.createElement(ScoresTable, null)
+        React.createElement(ScoresTable, {
+          savedScore: this.state.savedScore
+        })
       );
     }
   }]);

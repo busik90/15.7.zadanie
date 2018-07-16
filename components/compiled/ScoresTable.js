@@ -8,53 +8,33 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Stopwatch = function (_React$Component) {
-  _inherits(Stopwatch, _React$Component);
+var ScoresTable = function (_React$Component) {
+  _inherits(ScoresTable, _React$Component);
 
-  function Stopwatch(props) {
-    _classCallCheck(this, Stopwatch);
+  function ScoresTable() {
+    _classCallCheck(this, ScoresTable);
 
-    var _this = _possibleConstructorReturn(this, (Stopwatch.__proto__ || Object.getPrototypeOf(Stopwatch)).call(this, props));
-
-    _this.print = function () {
-      var currentTime = _this.format(_this.props.times);
-      if (_this.props.saveState) {
-        _this.props.saveScore(currentTime);
-      };
-      return currentTime;
-    };
-
-    _this.format = function (times) {
-      function pad0(value) {
-        var result = value.toString();
-        if (result.length < 2) {
-          result = '0' + result;
-        }
-        return result;
-      }
-
-      return pad0(times.minutes) + ':' + pad0(times.seconds) + ':' + pad0(Math.floor(times.miliseconds));
-    };
-
-    return _this;
+    return _possibleConstructorReturn(this, (ScoresTable.__proto__ || Object.getPrototypeOf(ScoresTable)).apply(this, arguments));
   }
 
-  _createClass(Stopwatch, [{
+  _createClass(ScoresTable, [{
+    key: 'displayNewScore',
+    value: function displayNewScore() {
+      var liElement = document.createElement('li');
+
+      liElement.innerText = this.props.savedScore;
+      this.scoresTable.appendChild(liElement);
+    }
+  }, {
     key: 'render',
     value: function render() {
-      return React.createElement(
-        'div',
-        { className: 'stopwatch' },
-        this.print()
-      );
+      return React.createElement('ul', { className: 'scoresTable' });
     }
   }]);
 
-  return Stopwatch;
+  return ScoresTable;
 }(React.Component);
 
-Stopwatch.propTypes = {
-  times: React.PropTypes.object.isRequired,
-  saveState: React.PropTypes.bool.isRequired,
-  saveScore: React.PropTypes.func.isRequired
+ScoresTable.propTypes = {
+  savedScore: React.PropTypes.string.isRequired
 };

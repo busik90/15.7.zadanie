@@ -7,7 +7,9 @@ class App extends React.Component {
         minutes: 0,
         seconds: 0,
         miliseconds: 0
-      }
+      },
+      saveState: false,
+      savedScore: ''
     };
   }
 
@@ -39,6 +41,16 @@ class App extends React.Component {
     });
   }
 
+  changeSaveState = (value) => {
+    this.setState({ saveState: value });
+  }
+
+  saveScore = (score) => {
+    this.setState({ saveState: false });
+    this.setState({ savedScore: score });
+    console.log(score);
+  }
+
   render() {
     return (
       <div className='stopwatchApp'>
@@ -47,11 +59,16 @@ class App extends React.Component {
           runningState={this.changeRunningState}
           start={this.calculate}
           reset={this.resetTime}
+          save={this.changeSaveState}
         />
         <Stopwatch
           times={this.state.times}
+          saveState={this.state.saveState}
+          saveScore={this.saveScore}
         />
-        <ScoresTable />
+        <ScoresTable
+          savedScore={this.state.savedScore}
+        />
         {/* <ClearListButton /> */}
       </div>
     )
