@@ -36,6 +36,10 @@ var Controls = function (_React$Component) {
       }
     };
 
+    _this.save = function () {
+      _this.props.save();
+    };
+
     return _this;
   }
 
@@ -62,7 +66,7 @@ var Controls = function (_React$Component) {
         ),
         React.createElement(
           'a',
-          { href: '#', className: 'button', id: 'save' },
+          { href: '#', className: 'button', id: 'save', onClick: this.save },
           'Save'
         )
       );
@@ -76,5 +80,6 @@ Controls.propTypes = {
   isRunning: React.PropTypes.bool.isRequired,
   runningState: React.PropTypes.func.isRequired,
   start: React.PropTypes.func.isRequired,
-  reset: React.PropTypes.func.isRequired
+  reset: React.PropTypes.func.isRequired,
+  save: React.PropTypes.func.isRequired
 };

@@ -17,19 +17,7 @@ var Stopwatch = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (Stopwatch.__proto__ || Object.getPrototypeOf(Stopwatch)).call(this, props));
 
     _this.print = function () {
-      return _this.format(_this.props.times);
-    };
-
-    _this.format = function (times) {
-      function pad0(value) {
-        var result = value.toString();
-        if (result.length < 2) {
-          result = '0' + result;
-        }
-        return result;
-      }
-
-      return pad0(times.minutes) + ':' + pad0(times.seconds) + ':' + pad0(Math.floor(times.miliseconds));
+      return _this.props.format(_this.props.times);
     };
 
     return _this;
@@ -50,5 +38,6 @@ var Stopwatch = function (_React$Component) {
 }(React.Component);
 
 Stopwatch.propTypes = {
-  times: React.PropTypes.object.isRequired
+  times: React.PropTypes.object.isRequired,
+  format: React.PropTypes.func.isRequired
 };

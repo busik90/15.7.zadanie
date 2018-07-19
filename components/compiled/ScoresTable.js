@@ -20,9 +20,23 @@ var ScoresTable = function (_React$Component) {
   _createClass(ScoresTable, [{
     key: 'render',
     value: function render() {
-      return React.createElement('ul', { className: 'scoresTable' });
+      return React.createElement(
+        'ul',
+        { className: 'scoresTable' },
+        this.props.scores.map(function (score) {
+          return React.createElement(
+            'li',
+            { key: score.id },
+            score.value
+          );
+        })
+      );
     }
   }]);
 
   return ScoresTable;
 }(React.Component);
+
+ScoresTable.propTypes = {
+  scores: React.PropTypes.array.isRequired
+};

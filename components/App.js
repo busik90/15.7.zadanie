@@ -7,7 +7,8 @@ class App extends React.Component {
         minutes: 0,
         seconds: 0,
         miliseconds: 0
-      }
+      },
+      scores: []
     };
   }
 
@@ -31,12 +32,34 @@ class App extends React.Component {
     }
   }
 
+  format = (times) =>  {
+    function pad0(value) {
+      let result = value.toString();
+      if (result.length < 2) {
+        result = '0' + result;
+      }
+      return result;
+    }
+    
+    return `${pad0(times.minutes)}:${pad0(times.seconds)}:${pad0(Math.floor(times.miliseconds))}`;
+  }
+
   resetTime = () => {
     this.setState( ({times}) => {
       times.minutes = 0;
       times.seconds = 0;
       times.miliseconds = 0;
     });
+  }
+
+  saveScore = () => {
+    const scores = [...this.state.scores, {
+      id: this.state.scores.length,
+      value: this.format(this.state.times)
+    }];
+    this.setState({scores});
+
+    // console.log(scores[scores.length - 1]);
   }
 
   render() {
@@ -47,11 +70,15 @@ class App extends React.Component {
           runningState={this.changeRunningState}
           start={this.calculate}
           reset={this.resetTime}
+          save={this.saveScore}
         />
         <Stopwatch
           times={this.state.times}
+          format={this.format}
         />
-        <ScoresTable />
+        <ScoresTable
+          scores={this.state.scores}
+        />
         {/* <ClearListButton /> */}
       </div>
     )
