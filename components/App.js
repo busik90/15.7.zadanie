@@ -62,6 +62,10 @@ class App extends React.Component {
     // console.log(scores[scores.length - 1]);
   }
 
+  clearScoresList = () => {
+    this.setState({scores: []});
+  }
+
   render() {
     return (
       <div className='stopwatchApp'>
@@ -79,7 +83,9 @@ class App extends React.Component {
         <ScoresTable
           scores={this.state.scores}
         />
-        {/* <ClearListButton /> */}
+        <ClearListButton
+          clearList={this.clearScoresList}
+        />
       </div>
     )
   }

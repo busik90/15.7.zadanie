@@ -77,6 +77,10 @@ var App = function (_React$Component) {
       // console.log(scores[scores.length - 1]);
     };
 
+    _this.clearScoresList = function () {
+      _this.setState({ scores: [] });
+    };
+
     _this.state = {
       running: false,
       times: {
@@ -108,6 +112,9 @@ var App = function (_React$Component) {
         }),
         React.createElement(ScoresTable, {
           scores: this.state.scores
+        }),
+        React.createElement(ClearListButton, {
+          clearList: this.clearScoresList
         })
       );
     }
