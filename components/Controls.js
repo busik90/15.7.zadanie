@@ -31,9 +31,9 @@ class Controls extends React.Component {
   render () {
     return (
       <nav className='controls'>
-        <a href='#' className='button' id='start' onClick={() => this.start()}>Start</a>
-        <a href='#' className='button' id='stop' onClick={() => this.stop()}>Stop</a>
-        <a href='#' className='button' id='reset' onClick={() => this.reset()}>Reset</a>
+        <a href='#' className='button' id='start' onClick={this.start}>Start</a>
+        <a href='#' className='button' id='stop' onClick={this.stop}>Stop</a>
+        <a href='#' className='button' id='reset' onClick={this.reset}>Reset</a>
         <a href='#' className='button' id='save' >Save</a>
       </nav>
     )

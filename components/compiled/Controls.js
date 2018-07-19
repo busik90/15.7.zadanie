@@ -42,30 +42,22 @@ var Controls = function (_React$Component) {
   _createClass(Controls, [{
     key: 'render',
     value: function render() {
-      var _this2 = this;
-
       return React.createElement(
         'nav',
         { className: 'controls' },
         React.createElement(
           'a',
-          { href: '#', className: 'button', id: 'start', onClick: function onClick() {
-              return _this2.start();
-            } },
+          { href: '#', className: 'button', id: 'start', onClick: this.start },
           'Start'
         ),
         React.createElement(
           'a',
-          { href: '#', className: 'button', id: 'stop', onClick: function onClick() {
-              return _this2.stop();
-            } },
+          { href: '#', className: 'button', id: 'stop', onClick: this.stop },
           'Stop'
         ),
         React.createElement(
           'a',
-          { href: '#', className: 'button', id: 'reset', onClick: function onClick() {
-              return _this2.reset();
-            } },
+          { href: '#', className: 'button', id: 'reset', onClick: this.reset },
           'Reset'
         ),
         React.createElement(
