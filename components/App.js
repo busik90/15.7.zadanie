@@ -8,7 +8,10 @@ class App extends React.Component {
         seconds: 0,
         miliseconds: 0
       },
-      scores: []
+      scores: [{
+        id: 0,
+        value: ''
+      }]
     };
   }
 
@@ -53,17 +56,27 @@ class App extends React.Component {
   }
 
   saveScore = () => {
-    const scores = [...this.state.scores, {
-      id: this.state.scores.length,
-      value: this.format(this.state.times)
-    }];
-    this.setState({scores});
+    const _ = this.state.scores;
 
+    const newTime = this.format(this.state.times),
+          previewTime = _[_.length - 1].value;
+
+    if (newTime != previewTime && newTime != '00:00:00') {
+      const scores = [..._, {
+        id: _.length,
+        value: newTime
+      }];
+      this.setState({scores});
+      
     // console.log(scores[scores.length - 1]);
+    }
   }
 
   clearScoresList = () => {
-    this.setState({scores: []});
+    this.setState({scores: [{
+      id: 0,
+      value: ''
+    }]});
   }
 
   render() {

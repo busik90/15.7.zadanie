@@ -68,17 +68,27 @@ var App = function (_React$Component) {
     };
 
     _this.saveScore = function () {
-      var scores = [].concat(_toConsumableArray(_this.state.scores), [{
-        id: _this.state.scores.length,
-        value: _this.format(_this.state.times)
-      }]);
-      _this.setState({ scores: scores });
+      var _ = _this.state.scores;
 
-      // console.log(scores[scores.length - 1]);
+      var newTime = _this.format(_this.state.times),
+          previewTime = _[_.length - 1].value;
+
+      if (newTime != previewTime && newTime != '00:00:00') {
+        var scores = [].concat(_toConsumableArray(_), [{
+          id: _.length,
+          value: newTime
+        }]);
+        _this.setState({ scores: scores });
+
+        // console.log(scores[scores.length - 1]);
+      }
     };
 
     _this.clearScoresList = function () {
-      _this.setState({ scores: [] });
+      _this.setState({ scores: [{
+          id: 0,
+          value: ''
+        }] });
     };
 
     _this.state = {
@@ -88,7 +98,10 @@ var App = function (_React$Component) {
         seconds: 0,
         miliseconds: 0
       },
-      scores: []
+      scores: [{
+        id: 0,
+        value: ''
+      }]
     };
     return _this;
   }
