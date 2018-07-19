@@ -4,10 +4,6 @@ class Stopwatch extends React.Component {
     format: React.PropTypes.func.isRequired
   }
 
-  constructor(props) {
-    super(props);
-  }
-
   print = () => {
     return this.props.format(this.props.times);
   }

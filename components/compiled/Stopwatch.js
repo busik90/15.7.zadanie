@@ -11,16 +11,20 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var Stopwatch = function (_React$Component) {
   _inherits(Stopwatch, _React$Component);
 
-  function Stopwatch(props) {
+  function Stopwatch() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
     _classCallCheck(this, Stopwatch);
 
-    var _this = _possibleConstructorReturn(this, (Stopwatch.__proto__ || Object.getPrototypeOf(Stopwatch)).call(this, props));
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
 
-    _this.print = function () {
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Stopwatch.__proto__ || Object.getPrototypeOf(Stopwatch)).call.apply(_ref, [this].concat(args))), _this), _this.print = function () {
       return _this.props.format(_this.props.times);
-    };
-
-    return _this;
+    }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 
   _createClass(Stopwatch, [{

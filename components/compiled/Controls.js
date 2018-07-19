@@ -11,36 +11,34 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var Controls = function (_React$Component) {
   _inherits(Controls, _React$Component);
 
-  function Controls(props) {
+  function Controls() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
     _classCallCheck(this, Controls);
 
-    var _this = _possibleConstructorReturn(this, (Controls.__proto__ || Object.getPrototypeOf(Controls)).call(this, props));
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
 
-    _this.start = function () {
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Controls.__proto__ || Object.getPrototypeOf(Controls)).call.apply(_ref, [this].concat(args))), _this), _this.start = function () {
       if (!_this.props.isRunning) {
         _this.props.runningState(true);
         _this.watch = setInterval(function () {
           return _this.props.start();
         }, 10);
       }
-    };
-
-    _this.stop = function () {
+    }, _this.stop = function () {
       _this.props.runningState(false);
       clearInterval(_this.watch);
-    };
-
-    _this.reset = function () {
+    }, _this.reset = function () {
       if (!_this.props.isRunning) {
         _this.props.reset();
       }
-    };
-
-    _this.save = function () {
+    }, _this.save = function () {
       _this.props.save();
-    };
-
-    return _this;
+    }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 
   _createClass(Controls, [{

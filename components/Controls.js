@@ -7,10 +7,6 @@ class Controls extends React.Component {
     save: React.PropTypes.func.isRequired
   }
 
-  constructor(props) {
-    super(props);
-  }
-
   start = () => {
     if (!this.props.isRunning) {
       this.props.runningState(true);
